@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://drnpk2tpy62up"]
+
+[ext_resource type="Script" uid="uid://dlsdxfkyqag5i" path="res://scripts/enemy/enemy_controller.gd" id="1_ec"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_enemy"]
+size = Vector3(1.6, 1.2, 9)
+
+[sub_resource type="StandardMaterial3D" id="StdMat_red"]
+albedo_color = Color(0.75, 0.12, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_enemy"]
+size = Vector3(12, 3.6, 12)
+
+[node name="Enemy" type="RigidBody3D" unique_id=634674493]
+mass = 12000.0
+script = ExtResource("1_ec")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=349234151]
+transform = Transform3D(1, -1.7484555e-07, 0, 1.7484555e-07, 1, 0, 0, 0, 1, 0, -0.01651287, 0)
+mesh = SubResource("BoxMesh_enemy")
+surface_material_override/0 = SubResource("StdMat_red")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1762968732]
+shape = SubResource("BoxShape3D_enemy")

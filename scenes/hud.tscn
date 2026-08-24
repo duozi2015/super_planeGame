@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bqfoulsoqtt26"]
+
+[ext_resource type="Script" uid="uid://i8pb5wsjx3n2" path="res://scripts/hud/hud.gd" id="1_hud"]
+[ext_resource type="Script" uid="uid://by06j3234e8oo" path="res://scripts/hud/attitude.gd" id="2_oo0fn"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1780687870]
+
+[node name="Root" type="Control" parent="." unique_id=193969613]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hud")
+
+[node name="Attitude" type="Control" parent="Root" unique_id=1820079425]
+clip_contents = true
+layout_mode = 0
+script = ExtResource("2_oo0fn")

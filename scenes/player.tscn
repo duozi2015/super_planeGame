@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dnbuuh6n0xcvk"]
+
+[ext_resource type="Script" uid="uid://dknslmi6sbptn" path="res://scripts/player/flight_controller.gd" id="1_fc"]
+[ext_resource type="Script" uid="uid://nxianjin8x65" path="res://scripts/player/weapons.gd" id="2_g2els"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_body"]
+size = Vector3(1.6, 1.2, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_body"]
+size = Vector3(7.2, 4.5, 12)
+
+[node name="Player" type="RigidBody3D" unique_id=1321218251]
+mass = 12000.0
+script = ExtResource("1_fc")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=827189458]
+mesh = SubResource("BoxMesh_body")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1350165789]
+shape = SubResource("BoxShape3D_body")
+
+[node name="Weapons" type="Node" parent="." unique_id=305808196]
+script = ExtResource("2_g2els")

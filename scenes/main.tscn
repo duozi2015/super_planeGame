@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ck8ibmc2vl7qa"]
+
+[ext_resource type="Script" uid="uid://13cww4qnkud3" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://dnbuuh6n0xcvk" path="res://scenes/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://dnddrkkils2ci" path="res://scripts/camera/chase_cam.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://cw3on2yk083dm" path="res://scripts/environment/world_env.gd" id="5_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://c1otkctgmdd63" path="res://scripts/environment/terrain_builder.gd" id="7_o6xl0"]
+
+[node name="Main" type="Node3D" unique_id=1576270993]
+script = ExtResource("1_main")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1380450757]
+transform = Transform3D(0.707, -0.587, 0.394, 0, 0.557, 0.83, -0.394, -0.587, 0.707, 0, 5, 0)
+light_energy = 1.5
+
+[node name="Player" parent="." unique_id=158391036 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2000, 0)
+
+[node name="HUD" parent="." unique_id=1004079616 instance=ExtResource("3_sugp2")]
+
+[node name="ChaseCam" type="Camera3D" parent="." unique_id=801838863 node_paths=PackedStringArray("target_node")]
+script = ExtResource("4_jyhfs")
+target_node = NodePath("../Player")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1944996830]
+script = ExtResource("5_tbgi4")
+
+[node name="Enemy1" parent="." unique_id=246042327 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2500, -3000)
+
+[node name="Enemy2" parent="." unique_id=1911978882 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 2400, -4000)
+
+[node name="Enemy3" parent="." unique_id=246000003 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600, 2000, 400)
+
+[node name="Enemy4" parent="." unique_id=246000004 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2000, 400)
+
+[node name="Enemy5" parent="." unique_id=246000005 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 2000, 400)
+
+[node name="Terrain" type="Node3D" parent="." unique_id=503681921]
+script = ExtResource("7_o6xl0")
